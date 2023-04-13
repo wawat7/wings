@@ -22,7 +22,10 @@
             <div class="text-right">
                 <h3>Grand Total : Rp. <span id="grand-total-cart">0</span></h3>
                 <br>
-                <button class="btn btn-primary">CHECKOUT</button>
+                <form action="{{ route('sales.store') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">CHECKOUT</button>
+                </form>
             </div>
         </div>
     </div>

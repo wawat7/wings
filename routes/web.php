@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\RegistrationController;
+use App\Http\Controllers\Web\ReportController;
 use App\Http\Controllers\Web\SalesController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +39,10 @@ Route::middleware('auth')->group(function() {
 
 Route::prefix('sales')->middleware('auth')->group(function() {
     Route::get('/', [SalesController::class, 'index'])->name('sales.index');
+    Route::post('/', [SalesController::class, 'store'])->name('sales.store');
+    Route::get('/success', [SalesController::class, 'orderFinish'])->name('sales.finish');
+});
+
+Route::prefix('reports')->middleware('auth')->group(function() {
+    Route::get('/', [ReportController::class, 'index'])->name('report.index');
 });

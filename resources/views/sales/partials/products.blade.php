@@ -16,7 +16,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
-                            <td>Rp <s>{{ $product->price }}</s> {{ $product->price_discount }}</td>
+                            <td><s>Rp {{ $product->price }}</s> Rp {{ $product->price_discount }}</td>
                             <td>
                                 <button type="button" onclick="getDetail({{ $product->id }})" class="btn btn-success btn-sm">
                                     BUY

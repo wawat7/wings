@@ -20,7 +20,7 @@ class CartController extends Controller
             $carts = $carts->whereUserId($request->user_id);
         }
 
-        $carts = $carts->get();
+        $carts = $carts->orderBy('id')->get();
         return response()->json(CartResource::collection($carts), 200);
     }
 

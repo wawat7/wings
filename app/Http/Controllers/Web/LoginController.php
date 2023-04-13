@@ -22,7 +22,7 @@ class LoginController extends Controller
         $credentials = $request->only('username', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();
-        return redirect()->route('dashboard')
+        return redirect()->route('sales.index')
             ->withSuccess('You have successfully registered & logged in!');
     }
 
